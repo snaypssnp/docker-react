@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t snaypssnp/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true snaypssnp/docker-react npm run test
